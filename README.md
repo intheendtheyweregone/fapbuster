@@ -19,7 +19,9 @@ Clone the repo
 
 run ``` npm i ```
 
-run (after ensuring that the script is in writable directory) ``` node index.js (creator name) (number of media) ```
+run (after ensuring that the script is in writable directory) ``` node index.js (creator name) (number of media) ```'
+
+![CMkk97](https://user-images.githubusercontent.com/114883905/195442292-93ef074f-ab8d-4a83-80bb-7029a981d80a.png)
 
 
 
