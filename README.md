@@ -19,7 +19,8 @@ Clone the repo
 
 run ``` npm i ```
 
-run ``` node index.js (creator name) (number of media) ```
+run (after ensuring that the script is in writable directory) ``` node index.js (creator name) (number of media) ```
+
 
 
 The script will then download files one-by-one into a directory with the creators name.
