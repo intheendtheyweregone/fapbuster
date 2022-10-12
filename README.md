@@ -10,6 +10,8 @@ Video Media are not downloaded, mainly due to personal choice as they're usually
 
 There is a general lack of user-friendly error handling as this was just a personal script I quickly wrote up and hadn't planned on putting it anywhere until now.
 
+I wrote this when I was a terrible programmer, and I still am.
+
 ## Usage
 
 
