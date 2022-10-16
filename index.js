@@ -13,7 +13,7 @@ let first = model_name.slice(0, 1)
 let second = model_name.slice(1, 2)
 
 let num = arguments[1]++;
-
+    
 
 function downloadImage(url, filepath) {
     return new Promise((resolve, reject) => {
@@ -25,7 +25,7 @@ function downloadImage(url, filepath) {
                     .once('close', () => resolve(filepath));
             } else {
                 res.resume();
-                reject(new Error(`Request got ${res.statusCode} - Out of content or something?`));
+                reject(new Error(`Request got 404 - Out of content?`));
 
             }
         });
@@ -56,16 +56,12 @@ const download = async () => {
     for (let i = 1; i < num; i++) {
         if (i > 100) {
             downloadImage("https://fapello.com/content/" + first + "/" + second + "/" + model_name + "/1000/" + model_name + "_" + addLeadingZeros(i, 4) + ".jpg", model_name + '/' + randomUUID() + '.jpg')
-                .then((a) => {
-                    console.log('%d / %d Pieces of Media Downloaded for "%s".', i, num, model_name)
-                })
+                .then(console.log)
                 .catch(console.error);
 
         } else {
             downloadImage("https://fapello.com/content/" + first + "/" + second + "/" + model_name + "/1000/" + model_name + "_" + addLeadingZeros(i, 4) + ".jpg", model_name + '/' + randomUUID() + '.jpg')
-                .then((a) => {
-                    console.log('%d / %d Pieces of Media Downloaded for "%s".', i, num, model_name)
-                })
+                .then(console.log)
                 .catch(console.error);
         }
         await sleep(365)
