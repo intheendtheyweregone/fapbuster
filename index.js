@@ -12,8 +12,7 @@ let model_name = arguments[0]
 let first = model_name.slice(0, 1)
 let second = model_name.slice(1, 2)
 
-let num = arguments[1]++;
-    
+
 
 function downloadImage(url, filepath) {
     return new Promise((resolve, reject) => {
@@ -25,7 +24,7 @@ function downloadImage(url, filepath) {
                     .once('close', () => resolve(filepath));
             } else {
                 res.resume();
-                reject(new Error(`Request got 404 - Out of content?`));
+                reject(new Error(`Request got ${res.statusCode} - Out of content or something?`));
 
             }
         });
@@ -38,7 +37,6 @@ function addLeadingZeros(num, totalLength) {
 }
 
 var dir = './' + model_name;
-
 if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
@@ -51,20 +49,24 @@ const sleep = (time) => {
 }
 
 
-
+let num = arguments[1]++;
 const download = async () => {
-    for (let i = 1; i < num; i++) {
+    for (let i = 1; i < num + 1; i++) {
         if (i > 100) {
             downloadImage("https://fapello.com/content/" + first + "/" + second + "/" + model_name + "/1000/" + model_name + "_" + addLeadingZeros(i, 4) + ".jpg", model_name + '/' + randomUUID() + '.jpg')
-                .then(console.log)
+                .then((a) => {
+                    console.log(`${num - i} pieces of media remaining to download.`)
+                })
                 .catch(console.error);
 
         } else {
             downloadImage("https://fapello.com/content/" + first + "/" + second + "/" + model_name + "/1000/" + model_name + "_" + addLeadingZeros(i, 4) + ".jpg", model_name + '/' + randomUUID() + '.jpg')
-                .then(console.log)
+                .then((a) => {
+                    console.log(`${num - i} pieces of media remaining to download.`)
+                })
                 .catch(console.error);
         }
-        await sleep(365)
+        await sleep(322)
 
 
     }
