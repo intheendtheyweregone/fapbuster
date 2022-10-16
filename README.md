@@ -1,6 +1,6 @@
 # FAPBUSTER
 
-FapBuster is a simple node script (go rewrite whenever) to scrape Fapello.
+FapBuster is a simple node script (go rewrite whenever) to download images from Fapello.
 
 
 ## Limitations
